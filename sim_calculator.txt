@@ -1,0 +1,27 @@
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+print("select an operation to perform 1.add 2.subtract 3.multiply 4.division :")
+operation = input()
+print("you selected:",operation)
+if operation == "1":
+    num1=int(input("enter first num:" ))
+    num2=int(input("enter second number"))
+    print("The sum is", num1+num2)
+elif operation =="2" :
+    print("Subtract")
+    num1=int(input("enter first num:"))
+    num2=int(input("enter 2 num:"))
+    print("the result is:",num1 - num2)
+elif operation == "3":
+    print("Multiply")
+    num1 = int(input("enter first num:"))
+    num2 = int(input("enter 2 num:"))
+    print("the result is:", num1 * num2)
+elif operation == "4":
+    print("Divide")
+    num1 = int(input("enter first num:"))
+    num2 = int(input("enter 2 num:"))
+    print("the result is:", num1 / num2)
+else:
+    print("invalid entry")
