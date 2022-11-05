@@ -1,0 +1,14 @@
+if __name__ == '__main__':
+    print_hi('PyCharm')
+name = "Poornima"
+age = "40"
+print("my name is  " + name + ",")
+word = "Welcome to ITC"
+print(word.replace("W", 'M'))
+print((word.lower()))
+print(word.upper())
+print(word.isupper())
+print(word.find('e'))  # finds the index of a string
+print(word.count('e'))  # counts the occurence of a char
+print(len(word))  # counting the no of char in a string
+print(word[4])  # printing the 3rd index
