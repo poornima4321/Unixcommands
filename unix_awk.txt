@@ -1,0 +1,96 @@
+1. AWK Operations: 
+(a) Scans a file line by line 
+(b) Splits each input line into fields 
+(c) Compares input line/fields to pattern 
+(d) Performs action(s) on matched lines 
+
+2. Useful For: 
+(a) Transform data files 
+(b) Produce formatted reports 
+
+3. Programming Constructs: 
+(a) Format output lines 
+(b) Arithmetic and string operations 
+(c) Conditionals and loops 
+
+Syntax:
+
+awk options 'selection _criteria {action }' input-file > output-file
+Options:  
+
+
+
+$cat > employee.txt 
+ajay manager account 45000
+sunil clerk account 25000
+varun manager sales 50000
+amit manager account 47000
+tarun peon sales 15000
+deepak clerk sales 23000
+sunil peon sales 13000
+satvik director purchase 80000 
+
+$ awk '{print}' employee.txt
+Output:  
+
+ajay manager account 45000
+sunil clerk account 25000
+varun manager sales 50000
+amit manager account 47000
+tarun peon sales 15000
+deepak clerk sales 23000
+sunil peon sales 13000
+satvik director purchase 80000 
+In the above example, no pattern is given. 
+So the actions are applicable to all the lines. Action print without any argument prints the whole line by default, so it prints all the lines of the file without failure. 
+
+2. Print the lines which match the given pattern. 
+
+$ awk '/manager/ {print}' employee.txt 
+Output:  
+
+ajay manager account 45000
+varun manager sales 50000
+amit manager account 47000 
+In the above example, the awk command prints all the line which matches with the ‘manager’. 
+
+3. Splitting a Line Into Fields : For each record i.e line, the awk command splits the record delimited by whitespace character by default and stores it in the $n variables. If the line has 4 words, it will be stored in $1, $2, $3 and $4 respectively. Also, $0 represents the whole line.  
+
+$ awk '{print $1,$4}' employee.txt 
+Output:  
+
+ajay 45000
+sunil 25000
+varun 50000
+amit 47000
+tarun 15000
+deepak 23000
+sunil 13000
+satvik 80000 
+
+In the above example, $1 and $4 represents Name and Salary fields respectively. 
+
+
+-------------------------------
+[octoberbatch@worker3 ~]$ vi employee.txt
+[octoberbatch@worker3 ~]$ cat employee.txt;
+Agon Manager  account  450000
+Ola  Manager  Finance  350000
+Eduar Software  account  50000
+Bagga  Banking  bank   550000
+
+[octoberbatch@worker3 ~]$ awk '{print}' employee.txt;
+Agon Manager  account  450000
+Ola  Manager  Finance  350000
+Eduar Software  account  50000
+Bagga  Banking  bank   550000
+
+[octoberbatch@worker3 ~]$ awk '/Manager/ {print}' employee.txt;
+Agon Manager  account  450000
+Ola  Manager  Finance  350000
+[octoberbatch@worker3 ~]$ awk '{print $1,$4}' employee.txt;
+Agon 450000
+Ola 350000
+Eduar 50000
+Bagga 550000
+
